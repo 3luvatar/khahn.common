@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0F488C39-836D-4C4F-B291-FF4E7E25F7F0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>khahn.common</RootNamespace>
+    <AssemblyName>khahn.common</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Fasterflect">
+      <HintPath>..\packages\fasterflect.2.1.3\lib\net40\Fasterflect.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="data\interfaces\IRepository.cs" />
+    <Compile Include="entity\fetchExpressions\AllFieldsFetchExpression.cs" />
+    <Compile Include="entity\fetchExpressions\EntityFetchExpression.cs" />
+    <Compile Include="entity\fetchExpressions\EntityPageRequest.cs" />
+    <Compile Include="entity\fetchExpressions\PropertyEntityFetchExpression.cs" />
+    <Compile Include="entity\fetchExpressions\StringEntityFetchExpression.cs" />
+    <Compile Include="entity\JsonProviders\NamedKey.cs" />
+    <Compile Include="entity\ReflectionProviders\ClassEntity.cs" />
+    <Compile Include="entity\ReflectionProviders\Field.cs" />
+    <Compile Include="entity\ReflectionProviders\IgnoreFieldAttribute.cs" />
+    <Compile Include="entity\ReflectionProviders\ReflectionEntityDefinition.cs" />
+    <Compile Include="entity\SimpleEntityDefinitionCache.cs" />
+    <Compile Include="entity\EntityDefinitionProvider.cs" />
+    <Compile Include="entity\interfaces\IEntity.cs" />
+    <Compile Include="entity\ReflectionProviders\ReflectedEntityKey.cs" />
+    <Compile Include="entity\interfaces\IEntityDefinition.cs" />
+    <Compile Include="entity\interfaces\IEntityDefinitionProvider.cs" />
+    <Compile Include="entity\interfaces\IEntityKey.cs" />
+    <Compile Include="entity\interfaces\IField.cs" />
+    <Compile Include="entity\interfaces\IFieldDefinition.cs" />
+    <Compile Include="entity\ReflectionProviders\ReflectionEntityDefinitionProvider.cs" />
+    <Compile Include="mapper\ConverterBuilder.cs" />
+    <Compile Include="mapper\IMapper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sqlBuilding\ConditionalExpressionParser.cs" />
+    <Compile Include="sqlBuilding\SqlWriter.cs" />
+    <Compile Include="TinyIoc.cs" />
+    <Compile Include="utils\ReflectionUtils.cs" />
+    <Compile Include="utils\TypeCache.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="entity\attributes\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
